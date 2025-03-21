@@ -8,7 +8,7 @@ export const usePosts = (enabled: boolean) => {
     queryKey: ['posts'],
     queryFn: getPosts,
     select: (data) => data.data,
-    enabled: enabled
+    enabled: enabled,
   })
 
   useEffect(() => {
@@ -21,3 +21,4 @@ export const usePosts = (enabled: boolean) => {
 
   return { data, isLoading, isSuccess };
 };
+
