@@ -4,20 +4,17 @@ import { getPosts } from "../services/getPosts";
 import { TPost } from "../types/post.type";
 
 
-const initialData: { data: TPost[] } = {
-  data: [{
-    id: 0,
-    userId: 0,
-    title: 'Initial title',
-    body: ''
-  }]
-}
+const initialData: TPost[] = [{
+  id: 0,
+  userId: 0,
+  title: 'Initial title',
+  body: ''
+}];
 
 export const usePosts = (enabled: boolean) => {
   const { data, isError, isSuccess, isLoading } = useQuery({
     queryKey: ['posts'],
     queryFn: getPosts,
-    select: (data) => data.data,
     enabled: enabled,
     initialData: initialData
   })

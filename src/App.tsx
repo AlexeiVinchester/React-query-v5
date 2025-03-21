@@ -6,7 +6,7 @@ import { usePosts } from './hooks/usePosts';
 const isAuth = true;
 
 function App() {
-  const { isLoading, isSuccess, data } = usePosts(isAuth);
+  const { isLoading, data } = usePosts(isAuth);
   const { post } = usePostById(1);
   console.log(post)
 
@@ -28,7 +28,7 @@ function App() {
     <>
       <h1>Posts</h1>
       <button onClick={handleClickInvalidatePosts}>Invalidate posts</button>
-      {isSuccess && data.map(item => (<div key={item.id}>{item.title}</div>))}
+      {data.map(item => (<div key={item.id}>{item.title}</div>))}
     </>
   )
 }
