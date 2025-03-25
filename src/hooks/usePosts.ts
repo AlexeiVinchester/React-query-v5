@@ -16,7 +16,7 @@ export const usePosts = (enabled: boolean) => {
     queryKey: ['posts'],
     queryFn: postsService.getPosts,
     enabled: enabled,
-    initialData: initialData
+    initialData: initialData,
   })
 
   useEffect(() => {

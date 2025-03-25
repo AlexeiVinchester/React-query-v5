@@ -1,22 +1,22 @@
 import axios from "axios";
 import { TPost } from "../types/post.type";
 
-class Posts {
-  private URL = 'https://jsonplaceholder.typicode.com/posts';
+const URL = 'https://jsonplaceholder.typicode.com/posts';
 
+class PostsService {
   async getPosts() {
-    const response = await axios.get<TPost[]>(this.URL);
+    const response = await axios.get<TPost[]>(URL);
     return response.data;
   };
 
   getPostById(id: number) {
-    return axios.get<TPost>(`${this.URL}/${id}`);
+    return axios.get<TPost>(`${URL}/${id}`);
   };
 
   async createNewPost(post: Omit<TPost, 'id'>) {
-    const response = await axios.post(this.URL, post);
-    return response;
+    const response = await axios.post(URL, post);
+    return response.data;
   };
 }
 
-export const postsService = new Posts()
+export const postsService = new PostsService();
