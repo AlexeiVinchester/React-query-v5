@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { getPosts } from "../services/getPosts";
 import { TPost } from "../types/post.type";
+import { postsService } from "../services/posts.api";
 
 
 const initialData: TPost[] = [{
@@ -14,7 +14,7 @@ const initialData: TPost[] = [{
 export const usePosts = (enabled: boolean) => {
   const { data, isError, isSuccess, isLoading } = useQuery({
     queryKey: ['posts'],
-    queryFn: getPosts,
+    queryFn: postsService.getPosts,
     enabled: enabled,
     initialData: initialData
   })
